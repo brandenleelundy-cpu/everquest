@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   DARK THEME  (default — deep dungeon stone / EQ night)
+   Values are R G B channels (no #) so Tailwind's opacity modifiers work.
+   ══════════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* ice — main background/border scale */
+  --eq-ice-50:  240 248 249;
+  --eq-ice-100: 205 232 236;
+  --eq-ice-200: 147 200 212;
+  --eq-ice-300:  77 168 184;
+  --eq-ice-400:  26 152 172;   /* active teal border */
+  --eq-ice-500:  20 120 140;
+  --eq-ice-600:  26  72  88;   /* dark stone border */
+  --eq-ice-700:  23  44  56;   /* very dark stone */
+  --eq-ice-800:  12  24  32;   /* panel background */
+  --eq-ice-900:   7  13  20;   /* page background */
+
+  /* steel — text scale (light values = readable on dark bg) */
+  --eq-steel-50:  242 237 230;
+  --eq-steel-100: 219 212 200;  /* main body text */
+  --eq-steel-200: 186 179 168;
+  --eq-steel-300: 154 147 136;
+  --eq-steel-400: 122 115 104;
+  --eq-steel-500:  90  82  72;
+  --eq-steel-600:  60  53  48;
+  --eq-steel-700:  39  32  24;
+  --eq-steel-800:  24  20  16;
+  --eq-steel-900:  12  10   8;
+
+  /* rime — primary EQ cyan-teal accent */
+  --eq-rime-50:  240 251 251;
+  --eq-rime-100: 208 244 240;
+  --eq-rime-200: 152 230 224;
+  --eq-rime-300:  80 208 200;
+  --eq-rime-400:   0 180 188;   /* THE iconic EQ teal */
+  --eq-rime-500:   0 140 144;
+
+  /* ember — fire / danger */
+  --eq-ember-400: 204  96  64;
+  --eq-ember-500: 170  64  32;
+  --eq-ember-600: 136  46  20;
+
+  /* gold — loot / quest */
+  --eq-gold-300: 232 200  80;
+  --eq-gold-400: 208 160  48;
+  --eq-gold-500: 176 128  24;
+  --eq-gold-600: 140 100  16;
+  --eq-gold-700:  99  72  16;
+
+  /* panel chrome */
+  --eq-panel-border:    rgba(26, 152, 172, 0.40);
+  --eq-panel-bevel-hi:  rgba(0, 180, 188, 0.08);
+  --eq-panel-bevel-lo:  rgba(0, 0, 0, 0.50);
+  --eq-panel-gap:       rgba(4, 8, 14, 0.95);
+  --eq-panel-frame:     rgba(23, 44, 58, 0.85);
+  --eq-panel-edge:      rgba(3, 7, 12, 0.90);
+  --eq-panel-shadow:    rgba(0, 0, 0, 0.80);
+  --eq-panel-bg-from:   rgba(16, 28, 40, 0.99);
+  --eq-panel-bg-to:     rgba(9, 14, 22, 1.00);
+
+  /* button */
+  --eq-btn-ice-from:      #1c4c5c;
+  --eq-btn-ice-to:        #0e1e2c;
+  --eq-btn-ice-hi-from:   #235e72;
+  --eq-btn-ice-hi-to:     #14283c;
+  --eq-btn-ice-border:    #1a98ac;
+  --eq-btn-ghost-from:    rgba(23, 44, 58, 0.85);
+  --eq-btn-ghost-to:      rgba(12, 20, 32, 0.90);
+  --eq-btn-ghost-border:  rgba(26, 152, 172, 0.35);
+
+  /* selection */
+  --eq-selection-bg: rgba(0, 180, 188, 0.30);
+
+  /* scrollbar */
+  --eq-scroll-track:    #070d14;
+  --eq-scroll-thumb-a:  #1a4858;
+  --eq-scroll-thumb-b:  #172c38;
+  --eq-scroll-hover-a:  #1a98ac;
+  --eq-scroll-hover-b:  #1a4858;
+  --eq-scroll-border:   #070d14;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   LIGHT THEME  (html.light — parchment stone / EQ daylight)
+   ══════════════════════════════════════════════════════════════════════════════ */
+html.light {
+  /* ice — now parchment/cream backgrounds */
+  --eq-ice-50:  232 244 248;
+  --eq-ice-100: 190 220 230;
+  --eq-ice-200: 120 184 200;
+  --eq-ice-300:  56 148 164;
+  --eq-ice-400:  12 110 126;   /* deeper teal for contrast on light */
+  --eq-ice-500:  80 156 172;
+  --eq-ice-600: 158 146 128;   /* warm stone border on light */
+  --eq-ice-700: 195 186 170;   /* lighter stone border */
+  --eq-ice-800: 237 232 218;   /* cream panel background */
+  --eq-ice-900: 245 240 230;   /* warm parchment page background */
+
+  /* steel — INVERTED: dark values for text on light backgrounds */
+  --eq-steel-50:  248 245 240;
+  --eq-steel-100:  28  20  10;  /* main body text — deep warm brown */
+  --eq-steel-200:  58  46  30;
+  --eq-steel-300:  90  74  56;
+  --eq-steel-400: 124 108  86;
+  --eq-steel-500: 158 144 122;
+  --eq-steel-600: 192 180 162;
+  --eq-steel-700: 215 208 194;
+  --eq-steel-800: 230 224 212;
+  --eq-steel-900: 242 238 228;
+
+  /* rime — slightly deeper teal for readable contrast on parchment */
+  --eq-rime-50:  228 246 248;
+  --eq-rime-100: 168 222 228;
+  --eq-rime-200:  90 192 202;
+  --eq-rime-300:  36 160 172;
+  --eq-rime-400:   0 140 150;   /* richer teal on light */
+  --eq-rime-500:   0 108 116;
+
+  /* ember — slightly richer for light bg */
+  --eq-ember-400: 188  72  44;
+  --eq-ember-500: 158  52  24;
+  --eq-ember-600: 130  38  16;
+
+  /* gold — MUCH darker for readability on parchment */
+  --eq-gold-300: 148 108  14;   /* amber-gold, readable on cream */
+  --eq-gold-400: 120  86   8;
+  --eq-gold-500:  96  68   6;
+  --eq-gold-600:  74  52   4;
+  --eq-gold-700:  54  40   4;
+
+  /* panel chrome — limestone / daylit stone */
+  --eq-panel-border:    rgba(0, 140, 150, 0.50);
+  --eq-panel-bevel-hi:  rgba(255, 255, 255, 0.70);
+  --eq-panel-bevel-lo:  rgba(0, 0, 0, 0.10);
+  --eq-panel-gap:       rgba(210, 200, 182, 0.90);
+  --eq-panel-frame:     rgba(164, 152, 130, 0.85);
+  --eq-panel-edge:      rgba(126, 114, 94, 0.90);
+  --eq-panel-shadow:    rgba(0, 0, 0, 0.18);
+  --eq-panel-bg-from:   rgba(237, 232, 218, 0.99);
+  --eq-panel-bg-to:     rgba(245, 240, 230, 1.00);
+
+  /* button */
+  --eq-btn-ice-from:     #1a7888;
+  --eq-btn-ice-to:       #105868;
+  --eq-btn-ice-hi-from:  #229aae;
+  --eq-btn-ice-hi-to:    #167080;
+  --eq-btn-ice-border:   #009aaa;
+  --eq-btn-ghost-from:   rgba(218, 210, 194, 0.85);
+  --eq-btn-ghost-to:     rgba(204, 195, 176, 0.90);
+  --eq-btn-ghost-border: rgba(0, 130, 140, 0.45);
+
+  /* selection */
+  --eq-selection-bg: rgba(0, 140, 150, 0.25);
+
+  /* scrollbar */
+  --eq-scroll-track:   #f5f0e6;
+  --eq-scroll-thumb-a: #8c7c68;
+  --eq-scroll-thumb-b: #6c5c48;
+  --eq-scroll-hover-a: #009aaa;
+  --eq-scroll-hover-b: #126878;
+  --eq-scroll-border:  #f5f0e6;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ══════════════════════════════════════════════════════════════════════════════ */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-frost-ice-900 text-frost-steel-100 font-sans antialiased;
+    background-image:
+      radial-gradient(at 8%  8%,  rgba(180, 100, 20,  0.09) 0px, transparent 50%),
+      radial-gradient(at 88% 10%, rgba(0,  180, 188,  0.06) 0px, transparent 55%),
+      radial-gradient(at 50% 94%, rgba(0,   80, 110,  0.12) 0px, transparent 55%);
+    background-attachment: fixed;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  /* Light mode — warm parchment ambient glow */
+  html.light body {
+    background-image:
+      radial-gradient(at 12% 4%,  rgba(200, 170,  80, 0.12) 0px, transparent 50%),
+      radial-gradient(at 82% 8%,  rgba(140, 200, 218, 0.09) 0px, transparent 55%),
+      radial-gradient(at 50% 92%, rgba(175, 152, 108, 0.10) 0px, transparent 55%);
+  }
+
+  ::selection {
+    background: var(--eq-selection-bg);
+    @apply text-frost-rime-100;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   COMPONENT STYLES
+   ══════════════════════════════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ── Typography ────────────────────────────────────────────────────────────── */
+
+  .font-display { font-family: '"Cinzel Decorative"', serif; }
+
+  .text-glow-ice {
+    text-shadow:
+      0 0 28px rgba(0, 180, 188, 0.55),
+      0 0  8px rgba(0, 180, 188, 0.28),
+      0 2px 10px rgba(0, 0, 0, 0.80);
+  }
+  html.light .text-glow-ice {
+    text-shadow:
+      0 0 18px rgba(0, 140, 150, 0.35),
+      0 1px  6px rgba(0, 0, 0, 0.22);
+  }
+
+  .text-glow-gold {
+    text-shadow:
+      0 0 22px rgba(208, 160, 48, 0.55),
+      0 2px  8px rgba(0, 0, 0, 0.70);
+  }
+  html.light .text-glow-gold {
+    text-shadow:
+      0 0 14px rgba(148, 108, 14, 0.40),
+      0 1px  4px rgba(0, 0, 0, 0.20);
+  }
+
+  /* ── EQ Stone Window chrome ────────────────────────────────────────────────── */
+  /*
+   * Recreates the classic EQ window:
+   *   — teal inner border line (the chrome)
+   *   — stone outer frame (via layered box-shadow)
+   *   — opaque dark/parchment background (no glassmorphism)
+   *   — raised-stone bevel on the inner edge
+   */
+  .panel {
+    @apply relative border;
+    border-color: var(--eq-panel-border);
+    border-radius: 3px;
+    background-image: linear-gradient(180deg, var(--eq-panel-bg-from), var(--eq-panel-bg-to));
+    box-shadow:
+      inset  1px  1px 0 var(--eq-panel-bevel-hi),
+      inset -1px -1px 0 var(--eq-panel-bevel-lo),
+      0 0 0 1px var(--eq-panel-gap),
+      0 0 0 4px var(--eq-panel-frame),
+      0 0 0 5px var(--eq-panel-edge),
+      0 8px 36px var(--eq-panel-shadow);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-image 0.3s ease;
+  }
+
+  .panel-hover {
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease,
+      background-image 0.3s ease;
+  }
+  .panel-hover:hover {
+    border-color: rgba(0, 180, 188, 0.65);
+    transform: translateY(-2px);
+    box-shadow:
+      inset  1px  1px 0 var(--eq-panel-bevel-hi),
+      inset -1px -1px 0 var(--eq-panel-bevel-lo),
+      0 0 0 1px var(--eq-panel-gap),
+      0 0 0 4px var(--eq-panel-frame),
+      0 0 0 5px var(--eq-panel-edge),
+      0 0 38px -6px rgba(0, 180, 188, 0.38),
+      0 12px 40px var(--eq-panel-shadow);
+  }
+  html.light .panel-hover:hover {
+    border-color: rgba(0, 140, 150, 0.70);
+    box-shadow:
+      inset  1px  1px 0 var(--eq-panel-bevel-hi),
+      inset -1px -1px 0 var(--eq-panel-bevel-lo),
+      0 0 0 1px var(--eq-panel-gap),
+      0 0 0 4px var(--eq-panel-frame),
+      0 0 0 5px var(--eq-panel-edge),
+      0 0 28px -6px rgba(0, 140, 150, 0.30),
+      0 8px 28px var(--eq-panel-shadow);
+  }
+
+  /* ── Primary EQ action button ──────────────────────────────────────────────── */
+  .btn-ice {
+    @apply relative inline-flex items-center justify-center gap-2
+           px-6 py-2.5
+           font-serif font-semibold tracking-widest uppercase text-sm
+           text-frost-gold-300;
+    background: linear-gradient(180deg, var(--eq-btn-ice-from), var(--eq-btn-ice-to));
+    border: 1px solid var(--eq-btn-ice-border);
+    border-radius: 3px;
+    box-shadow:
+      inset 0  1px 0 rgba(0, 180, 188, 0.28),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(0, 0, 0, 0.70),
+      0 3px 12px rgba(0, 0, 0, 0.55);
+    transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+  }
+  .btn-ice:hover {
+    background: linear-gradient(180deg, var(--eq-btn-ice-hi-from), var(--eq-btn-ice-hi-to));
+    box-shadow:
+      inset 0  1px 0 rgba(0, 180, 188, 0.40),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(0, 0, 0, 0.70),
+      0 0 22px rgba(0, 180, 188, 0.38),
+      0 4px 14px rgba(0, 0, 0, 0.55);
+    transform: translateY(-1px);
+  }
+  .btn-ice:active { transform: translateY(0); }
+
+  /* ── Ghost / secondary button ──────────────────────────────────────────────── */
+  .btn-ghost {
+    @apply relative inline-flex items-center justify-center gap-2
+           px-6 py-2.5
+           font-serif font-semibold tracking-widest uppercase text-sm
+           text-frost-steel-200;
+    background: linear-gradient(180deg, var(--eq-btn-ghost-from), var(--eq-btn-ghost-to));
+    border: 1px solid var(--eq-btn-ghost-border);
+    border-radius: 3px;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 0 0 1px rgba(0, 0, 0, 0.65),
+      0 2px 8px rgba(0, 0, 0, 0.45);
+    transition:
+      background 0.18s ease, border-color 0.18s ease,
+      color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .btn-ghost:hover {
+    @apply text-frost-rime-200;
+    background: linear-gradient(180deg, var(--eq-btn-ice-from), var(--eq-btn-ice-to));
+    border-color: var(--eq-btn-ice-border);
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(0, 180, 188, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.65),
+      0 0 14px rgba(0, 180, 188, 0.18),
+      0 4px 12px rgba(0, 0, 0, 0.45);
+  }
+  .btn-ghost:active { transform: translateY(0); }
+
+  /* ── EQ pill / tag chip ────────────────────────────────────────────────────── */
+  .chip {
+    @apply inline-flex items-center gap-1.5 border
+           px-2.5 py-0.5
+           font-serif text-[11px] font-medium uppercase tracking-widest;
+    border-radius: 2px;
+  }
+
+  /* ── Ornate section divider ────────────────────────────────────────────────── */
+  .divider-ornate {
+    @apply flex items-center justify-center gap-4 text-frost-ice-600;
+  }
+  .divider-ornate::before,
+  .divider-ornate::after {
+    content: '';
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-frost-ice-600/55 to-transparent;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ══════════════════════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar        { width: 10px; height: 10px; }
+::-webkit-scrollbar-track  { background: var(--eq-scroll-track); }
+::-webkit-scrollbar-thumb  {
+  background: linear-gradient(180deg, var(--eq-scroll-thumb-a), var(--eq-scroll-thumb-b));
+  border-radius: 2px;
+  border: 2px solid var(--eq-scroll-border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--eq-scroll-hover-a), var(--eq-scroll-hover-b));
+}
